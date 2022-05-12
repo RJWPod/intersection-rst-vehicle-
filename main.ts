@@ -1,18 +1,20 @@
+radio.onReceivedNumber(function (receivedNumber) {
+    Presses = 0
+})
 input.onButtonPressed(Button.A, function () {
-    Ambulance += -1
-    if (Ambulance != 0) {
-        Ambulance += 1
-        if (Ambulance == 0) {
-            Ambulance += -1
-            radio.sendNumber(7)
-            basic.pause(5000)
-        }
+    Presses += 1
+    if (Presses == 1) {
+        radio.sendNumber(7)
+        basic.pause(1000)
+    }
+    if (true) {
+    	
     }
 })
-function ambulance () {
-	
-}
-let Ambulance = 0
+input.onButtonPressed(Button.B, function () {
+    Presses += 0 - Presses
+})
+let Presses = 0
 basic.showLeds(`
     . . . . .
     . # # # .
@@ -21,4 +23,5 @@ basic.showLeds(`
     . . . . .
     `)
 radio.setGroup(177)
-Ambulance = 1
+let Ambulance = 0
+Presses = 0
