@@ -1,14 +1,15 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    Presses = 0
+    if (receivedNumber == 8) {
+        Presses = 0
+    }
 })
 input.onButtonPressed(Button.A, function () {
     Presses += 1
     if (Presses == 1) {
         radio.sendNumber(7)
         basic.pause(1000)
-    }
-    if (true) {
-    	
+    } else {
+        radio.sendNumber(8)
     }
 })
 input.onButtonPressed(Button.B, function () {
